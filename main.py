@@ -1,4 +1,5 @@
 import asyncio
+import sys
 
 from core import full_scrape
 from logger import logger
@@ -10,14 +11,14 @@ async def main():
         choice = int(input())
         if choice == 1:
             await full_scrape()
+            sys.exit('Success. Script stopped')
         if choice == 2:
             pass
             # await one_link()
         else:
-            print('Incorrect input, you must press "1" or "2"')
+            logger.debug('Incorrect input, you must press "1" or "2"\nExit')
     except BaseException as e:
         logger.debug(e)
-
     await asyncio.sleep(0.1)
 
 

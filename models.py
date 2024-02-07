@@ -191,3 +191,11 @@ class PhysicalParameters(Base):
     sar_body: Mapped[Optional[float]]
     sensors: Mapped[Optional[List]] = mapped_column(ARRAY(Text))
     charger_out_of_the_box: Mapped[Optional[str]] = mapped_column(String(20))
+
+
+class DataDirectory(Base):
+    code: Mapped[int] = mapped_column(primary_key=True, unique=True)
+    parent: Mapped[int]
+    ispath: Mapped[bool]
+    title: Mapped[str] = mapped_column(primary_key=True, unique=True)
+    link: Mapped[str] = mapped_column(unique=True)
