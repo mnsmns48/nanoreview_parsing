@@ -77,7 +77,7 @@ async def update_all_items():
                         {
                             'parent': code,
                             'title': key,
-                            'link': f"https://nanoreview.net{key}"
+                            'link': f"https://nanoreview.net{value}"
                         }
                     )
                     logger.debug(f"{key} add to DataBase")
