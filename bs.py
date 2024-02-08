@@ -20,7 +20,7 @@ async def update_path_parents() -> None:
         db_path_links = await get_all_paths(session=db_session)
         new_paths = list(set(hidden.links) - set(db_path_links))
         if len(new_paths) == 0:
-            logger.debug(f"DataBase doesn't need updating")
+            logger.debug(f"DataBase PATH doesn't need updating")
             return None
         for path_link in new_paths:
             async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as aiohttp_session:
