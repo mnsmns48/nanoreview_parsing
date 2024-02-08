@@ -194,8 +194,7 @@ class PhysicalParameters(Base):
 
 
 class DataDirectory(Base):
-    code: Mapped[int] = mapped_column(primary_key=True, unique=True)
+    code: Mapped[int] = mapped_column(primary_key=True, unique=True, autoincrement=True)
     parent: Mapped[int]
-    ispath: Mapped[bool]
     title: Mapped[str] = mapped_column(primary_key=True, unique=True)
     link: Mapped[str] = mapped_column(unique=True)
