@@ -13,10 +13,10 @@ async def add_data(session: AsyncSession, data: list):
     await session.commit()
 
 
-async def get_parent_code(session: AsyncSession) -> Sequence[Row[Any] | RowMapping | Any]:
-    query = select(DataDirectory.code).filter(DataDirectory.parent == 0)
+async def get_parent_(session: AsyncSession) -> Sequence[Row[Any] | RowMapping | Any]:
+    query = select(DataDirectory).filter(DataDirectory.parent == 0)
     parents: Result = await session.execute(query)
-    return parents.scalars().fetchall()
+    return parents.scalars().all()
 
 
 async def check_title(session: AsyncSession, title: str):

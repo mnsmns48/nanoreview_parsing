@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
 from config import hidden
-from core import get_all_paths, add_data, get_items, get_parent_code
+from core import get_all_paths, add_data, get_items, get_parent_
 from engine import db
 from logger import logger
 
@@ -49,40 +49,39 @@ async def update_path_parents() -> None:
 
 
 async def update_all_items():
-    result_list = list()
     async with db.scoped_session() as db_session:
-        parent_codes = await get_parent_code(session=db_session)
-    for code in parent_codes:
+        parent_models = await get_parent_(session=db_session)
+    for path in parent_models:
+        async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+            async with session.get(url=path.link,
+                                   headers={
+                                       'User-Agent': ua.random
+                                   },
+                                   timeout=ClientTimeout(total=100)) as response:
+                text = await response.text()
+        html = BeautifulSoup(text, 'lxml')
+        result = html.find_all('a', style='font-weight:500;')
+        res_dict = dict()
+        for line in result:
+            res_dict.update({line.getText(): line.get('href')})
         async with db.scoped_session() as db_session:
-            path_links = await get_all_paths(session=db_session)
-        for link in path_links:
-            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
-                async with session.get(url=link,
-                                       headers={
-                                           'User-Agent': ua.random
-                                       },
-                                       timeout=ClientTimeout(total=100)) as response:
-                    text = await response.text()
-                    html = BeautifulSoup(text, 'lxml')
-            result = html.find_all('a', style='font-weight:500;')
-            res_dict = dict()
-            for line in result:
-                res_dict.update({line.getText(): line.get('href')})
-                async with db.scoped_session() as db_session:
-                    items_in_db = await get_items(session=db_session, code=code)
-            new_items = list(set(res_dict.keys()) - set(items_in_db))
-            if len(new_items) > 0:
-                for key, value in res_dict.items():
-                    result_list.append(
-                        {
-                            'parent': code,
-                            'title': key,
-                            'link': f"https://nanoreview.net{value}"
-                        }
-                    )
-                    logger.debug(f"{key} add to DataBase")
-                async with db.scoped_session() as db_session:
-                    await add_data(session=db_session, data=result_list)
-            else:
-                logger.debug(f"DataBase ITEMS doesn't need updating")
-            await asyncio.sleep(5)
+            items_in_db = await get_items(session=db_session, code=path.code)
+        new_items = list(set(res_dict.keys()) - set(items_in_db))
+        if len(new_items) > 0:
+            result_list = list()
+            for name in new_items:
+                result_list.append(
+                    {
+                        'parent': path.code,
+                        'title': name,
+                        'link': f"https://nanoreview.net{res_dict.get(name)}"
+                    }
+                )
+                logger.debug(f"{name} add to DataBase")
+            async with db.scoped_session() as db_session:
+                await add_data(session=db_session, data=result_list)
+                result_list.clear()
+        else:
+            database_name = result[1].getText()
+            logger.debug(f"DataBase {database_name.split(' ')[0]} doesn't need updating")
+        await asyncio.sleep(3)
