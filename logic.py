@@ -1,13 +1,98 @@
 import asyncio
-from bs import update_path_parents, update_all_items
-from core import add_data, check_title, get_all_paths
+import random
+
+import aiohttp
+from aiohttp import ClientTimeout
+from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
+
+from config import hidden
+from core import get_all_paths, add_data, get_parent_, get_items
 from engine import db
 from logger import logger
-from models import Base
+
+ua = UserAgent()
 
 
-async def full_scrape():
-    async with db.engine.begin() as async_connect:
-        await async_connect.run_sync(Base.metadata.create_all)
-    await update_path_parents()
-    await update_all_items()
+async def update_path_parents() -> None:
+    result_list = list()
+    async with db.scoped_session() as db_session:
+        db_path_links = await get_all_paths(session=db_session)
+        new_paths = list(set(hidden.links) - set(db_path_links))
+        if len(new_paths) == 0:
+            logger.debug(f"DataBase PATH doesn't need updating")
+            return None
+        for path_link in new_paths:
+            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as aiohttp_session:
+                async with aiohttp_session.get(url=path_link,
+                                               headers={
+                                                   'User-Agent': ua.random
+                                               },
+                                               timeout=ClientTimeout(total=100)) as response:
+                    text = await response.text()
+                    html = BeautifulSoup(text, 'lxml')
+            result = html.find('h1', class_='title-h1')
+            result_list.append(
+                {
+                    'parent': 0,
+                    'title': result.getText(),
+                    'link': path_link
+                }
+            )
+            logger.debug(f"{result.getText()} add to DataBase")
+            await asyncio.sleep(random.randint(1, 4))
+    if len(result_list) > 0:
+        await add_data(session=db_session, data=result_list)
+    else:
+        logger.debug(f"DataBase PATH doesn't need updating")
+        return None
+
+
+async def update_items_in_datadir():
+    async with db.scoped_session() as db_session:
+        parent_models = await get_parent_(session=db_session)
+    for path in parent_models:
+        async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+            async with session.get(url=path.link,
+                                   headers={
+                                       'User-Agent': ua.random
+                                   },
+                                   timeout=ClientTimeout(total=100)) as response:
+                text = await response.text()
+        html = BeautifulSoup(text, 'lxml')
+        result = html.find_all('a', style='font-weight:500;')
+        res_dict = dict()
+        for line in result:
+            res_dict.update({line.getText(): line.get('href')})
+        async with db.scoped_session() as db_session:
+            items_in_db = await get_items(session=db_session, code=path.code)
+        new_items = list(set(res_dict.keys()) - set(items_in_db))
+        if len(new_items) > 0:
+            result_list = list()
+            for name in new_items:
+                result_list.append(
+                    {
+                        'parent': path.code,
+                        'title': name,
+                        'link': f"https://nanoreview.net{res_dict.get(name)}"
+                    }
+                )
+                logger.debug(f"{name} add to DataBase")
+            async with db.scoped_session() as db_session:
+                await add_data(session=db_session, data=result_list)
+                result_list.clear()
+        else:
+            database_name = result[1].getText()
+            logger.debug(f"DataBase {database_name.split(' ')[0]} doesn't need updating")
+        await asyncio.sleep(random.randint(2, 5))
+
+
+async def add_all_items():
+    async with db.scoped_session() as db_session:
+        parent_models = await get_parent_(session=db_session)
+        dir_codes = [i.code for i in parent_models]
+        for code in dir_codes:
+            items_in_db = await get_items(session=db_session, code=code)
+            print(items_in_db)
+            await db_session.close()
+            break

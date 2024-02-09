@@ -8,7 +8,7 @@ from models import DataDirectory
 
 
 async def add_data(session: AsyncSession, data: list):
-    stmt = insert(table=DataDirectory).values(data)  # .on_conflict_do_nothing(index_elements=['title'])
+    stmt = insert(table=DataDirectory).values(data)
     await session.execute(stmt)
     await session.commit()
 
@@ -33,5 +33,11 @@ async def get_all_paths(session: AsyncSession):
 
 async def get_items(session: AsyncSession, code: int):
     query = select(DataDirectory.title).filter(DataDirectory.parent == code)
+    result: Result = await session.execute(query)
+    return result.scalars().all()
+
+
+async def get_links(session: AsyncSession, code: int):
+    query = select(DataDirectory.link).filter(DataDirectory.parent == code)
     result: Result = await session.execute(query)
     return result.scalars().all()
