@@ -149,4 +149,4 @@ class DataDirectory(Base):
     parent: Mapped[int]
     title: Mapped[str] = mapped_column(primary_key=True, unique=True)
     link: Mapped[str] = mapped_column(unique=True)
-    rec: Mapped[bool]
+    rec: Mapped[Optional[bool]]
