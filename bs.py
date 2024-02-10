@@ -1,4 +1,5 @@
 import re
+
 import aiohttp
 from aiohttp import ClientTimeout
 from bs4 import BeautifulSoup
@@ -34,139 +35,161 @@ async def pars_link(link: str):
                                timeout=ClientTimeout(total=1000)) as response:
             text = await response.text()
     soup = BeautifulSoup(text, 'lxml')
-    all_specs = await _all_specs(soup=soup)
-
+    all_ = await _all_specs(soup=soup)
     data.update(
         {
             'main': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'category': all_specs.get('Класс'),
+                'category': all_.get('Класс') if 'Класс' in all_.keys() else None,
                 'advantage': [i.text for i in
                               soup.find('ul', class_='proscons-list two-columns-item').find_all('li')],
                 'disadvantage': [i.text for i in
                                  soup.find_all('ul', class_='proscons-list two-columns-item')[1].find_all('li')],
-                'total_score': int(all_specs.get('Итоговая оценка')),
-                'announced': await data_convert(all_specs.get('Дата выхода')),
-                'release_date': await data_convert(all_specs.get('Дата начала продаж'))
+                'total_score': int(all_.get('Итоговая оценка')) if 'Итоговая оценка' in all_.keys() else None,
+                'announced': await data_convert(all_.get('Дата выхода')) if 'Дата выхода' in all_.keys() else None,
+                'release_date': await data_convert(all_.get('Дата начала продаж')) if 'Дата начала продаж'
+                                                                                      in all_.keys() else None,
             },
             'display': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'total_value': int(all_specs.get('Дисплей')),
-                'display_type': all_specs.get('Тип'),
-                'd_size': float(all_specs.get('Размер').split(' ')[0]),
-                'resolution': all_specs.get('Разрешение').rsplit(' ', 1)[0],
-                'refresh_rate': int(all_specs.get('Частота обновления').split(' ')[0]),
-                'ppi': int(all_specs.get('Плотность пикселей').split(' ')[0]),
-                'adaptive_refresh_rate': False if all_specs.get('Адаптивная частота обновления') == 'Нет' else True,
-                'hdr_support': all_specs.get('Поддержка HDR'),
-                'screen_protection': all_specs.get('Защита дисплея'),
-                'pwm': all_specs.get('ШИМ (PWM)'),
-                'response_time': float(all_specs.get('Время отклика').split(' ')[0]),
+                'total_value': int(all_.get('Дисплей')) if 'Дисплей' in all_.keys() else None,
+                'display_type': all_.get('Тип'),
+                'd_size': float(all_.get('Размер').split(' ')[0]) if 'Размер' in all_.keys() else None,
+                'resolution': all_.get('Разрешение').rsplit(' ', 1)[0] if 'Разрешение' in all_.keys() else None,
+                'refresh_rate': int(all_.get('Частота обновления').split(' ')[0]) if 'Частота обновления'
+                                                                                     in all_.keys() else None,
+                'ppi': int(
+                    all_.get('Плотность пикселей').split(' ')[0]) if 'Плотность пикселей' in all_.keys() else None,
+                'adaptive_refresh_rate': False if all_.get('Адаптивная частота обновления') == 'Нет' else True,
+                'hdr_support': all_.get('Поддержка HDR'),
+                'screen_protection': all_.get('Защита дисплея'),
+                'pwm': all_.get('ШИМ (PWM)'),
+                'response_time': float(
+                    all_.get('Время отклика').split(' ')[0]) if 'Время отклика' in all_.keys() else None,
             },
             'performance': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'total_value': int(all_specs.get('Производительность')),
-                'chipset': all_specs.get('Чипсет'),
-                'max_clock': int(all_specs.get('Макс. частота').split(' ')[0]),
-                'ram_size': [int(x.strip()) for x in all_specs.get('Объем ОЗУ').replace(' ГБ', '').split(',')],
-                'memory_type': all_specs.get('Тип памяти'),
-                'channels': int(all_specs.get('Количество каналов')),
+                'total_value': int(all_.get('Производительность')) if 'Производительность' in all_.keys() else None,
+                'chipset': all_.get('Чипсет'),
+                'max_clock': int(
+                    all_.get('Макс. частота').split(' ')[0]) if 'Макс. частота' in all_.keys() else None,
+                'ram_size': [int(x.strip()) for x in all_.get('Объем ОЗУ').replace(' ГБ', '').split(',')],
+                'memory_type': all_.get('Тип памяти'),
+                'channels': int(all_.get('Количество каналов')) if 'Количество каналов' in all_.keys() else None,
                 'storage_size': [int(x.strip()) for x in
-                                 all_specs.get('Объем накопителя').replace(' ГБ', '').split(',')],
-                'storage_type': all_specs.get('Тип накопителя'),
-                'memory_card': False if all_specs.get('Карта памяти') == 'Нет' else True,
-                'cpu_cores': all_specs.get('CPU-ядер'),
-                'architecture': [x.strip() for x in all_specs.get('Архитектура').split('- ')[1:]],
-                'l3_cache': int(all_specs.get('Кэш L3').split(' ')[0]),
-                'lithography_process': int(all_specs.get('Размер транзистора').split(' ')[0]),
-                'graphics': all_specs.get('Графика'),
-                'gpu_clock': int(all_specs.get('Частота GPU').split(' ')[0]),
-                'geekbench_singlecore': int(all_specs.get('Geekbench 6 (одноядерный)')),
-                'geekbench_multicore': int(all_specs.get('Geekbench 6 (многоядерный)')),
-                'antutu_benchmark_': int(all_specs.get('AnTuTu Benchmark 10')),
-                'total_score': int(all_specs.get('Total score'))
+                                 all_.get('Объем накопителя').replace(' ГБ', '').split(',')],
+                'storage_type': all_.get('Тип накопителя'),
+                'memory_card': False if all_.get('Карта памяти') == 'Нет' else True,
+                'cpu_cores': all_.get('CPU-ядер'),
+                'architecture': [x.strip() for x in
+                                 all_.get('Архитектура').split('- ')[1:]] if 'Архитектура' in all_.keys() else None,
+                'l3_cache': int(all_.get('Кэш L3').split(' ')[0]) if 'Кэш L3' in all_.keys() else None,
+                'lithography_process': int(
+                    all_.get('Размер транзистора').split(' ')[0]) if 'Размер транзистора' in all_.keys() else None,
+                'graphics': all_.get('Графика'),
+                'gpu_clock': int(all_.get('Частота GPU').split(' ')[0]) if all_.get('Частота GPU') else None,
+                'geekbench_singlecore': int(all_.get('Geekbench 6 (одноядерный)')) if all_.get(
+                    'Geekbench 6 (одноядерный)') else None,
+                'geekbench_multicore': int(all_.get('Geekbench 6 (многоядерный)')) if all_.get(
+                    'Geekbench 6 (многоядерный)') else None,
+                'antutu_benchmark_': int(all_.get('AnTuTu Benchmark 10')) if all_.get('AnTuTu Benchmark 10') else None,
+                'total_score': int(all_.get('Total score')) if all_.get('Total score') else None
             },
             'camera': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'total_value': int(all_specs.get('Камера')),
-                'matrix_main': float(all_specs.get('Матрица').split(' ')[0]),
-                'image_resolution_main': all_specs.get('Разрешение фото'),
-                'zoom': all_specs.get('Зум'),
-                'flash': all_specs.get('Вспышка'),
-                'stabilization': all_specs.get('Стабилизация'),
-                'lenses': all_specs.get('Количество объективов'),
-                'wide_main_lens': [x.strip() for x in all_specs.get('Основной объектив').split('- ')[1:]],
-                'telephoto_lens': [x.strip() for x in all_specs.get('Телефото объектив').split('- ')[1:]],
+                'total_value': int(all_.get('Камера')) if all_.get('Камера') else None,
+                'matrix_main': float(all_.get('Матрица').split(' ')[0]) if all_.get('Матрица') else None,
+                'image_resolution_main': all_.get('Разрешение фото'),
+                'zoom': all_.get('Зум'),
+                'flash': all_.get('Вспышка'),
+                'stabilization': all_.get('Стабилизация'),
+                'lenses': all_.get('Количество объективов'),
+                'wide_main_lens': [x.strip() for x in all_.get('Основной объектив').split('- ')[1:]] if all_.get(
+                    'Основной объектив') else None,
+                'telephoto_lens': [x.strip() for x in all_.get('Телефото объектив').split('- ')[1:]] if all_.get(
+                    'Телефото объектив') else None,
                 'ultra_wide_lens': [x.strip() for x in
-                                    all_specs.get('Сверхширокоугольный объектив').split('- ')[1:]],
-                'slow_motion': all_specs.get('Замедленная съемка'),
-                'r1080p_video_recording': all_specs.get('Запись 1080p видео'),
-                'r4k_video_recording': all_specs.get('Запись 4K видео'),
-                'r8k_video_recording': all_specs.get('Запись 8K видео'),
-                'megapixels_front': all_specs.get('Количество мегапикселей'),
-                'aperture_front': all_specs.get('Апертура'),
-                'video_resolution': all_specs.get('Разрешение видео')
+                                    all_.get('Сверхширокоугольный объектив').split('- ')[1:]] if all_.get(
+                    'Сверхширокоугольный объектив') else None,
+                'slow_motion': all_.get('Замедленная съемка'),
+                'r1080p_video_recording': all_.get('Запись 1080p видео'),
+                'r4k_video_recording': all_.get('Запись 4K видео'),
+                'r8k_video_recording': all_.get('Запись 8K видео'),
+                'megapixels_front': all_.get('Количество мегапикселей'),
+                'aperture_front': all_.get('Апертура'),
+                'video_resolution': all_.get('Разрешение видео')
             },
             'energy': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'total_value': int(all_specs.get('Батарея')),
-                'capacity': int(all_specs.get('Объем').split(' ')[0]),
-                'max_charge_power': float(all_specs.get('Макс. мощность зарядки').split(' ')[0]),
-                'battery_type': all_specs.get('Тип аккумулятора'),
-                'wireless_charging': all_specs.get('Беспроводная зарядка'),
-                'reverse_charging': all_specs.get('Реверсивная зарядка'),
-                'fast_charging': all_specs.get('Быстрая зарядка'),
-                'full_charging_time': all_specs.get('Время полной зарядки')
+                'total_value': int(all_.get('Батарея')) if all_.get('Батарея') else None,
+                'capacity': int(all_.get('Объем').split(' ')[0]),
+                'max_charge_power': float(all_.get('Макс. мощность зарядки').split(' ')[0]) if all_.get(
+                    'Макс. мощность зарядки') else None,
+                'battery_type': all_.get('Тип аккумулятора'),
+                'wireless_charging': all_.get('Беспроводная зарядка'),
+                'reverse_charging': all_.get('Реверсивная зарядка'),
+                'fast_charging': all_.get('Быстрая зарядка'),
+                'full_charging_time': all_.get('Время полной зарядки')
             },
             'communication': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'total_value': int(all_specs.get('Коммуникации')),
-                'nfc': False if all_specs.get('NFC*') == 'Нет' else True,
-                'number_of_sim': int(all_specs.get('Количество SIM*')),
-                'esim_support': False if all_specs.get('Поддержка eSIM*') == 'Нет' else True,
-                'hybrid_slot': False if all_specs.get('Гибридный слот') == 'Нет' else True,
-                'wifi_standard': all_specs.get('Версия Wi-Fi'),
-                'wifi_features': [x.strip() for x in all_specs.get('Функции Wi-Fi').split('- ')[1:]],
-                'bluetooth_version': all_specs.get('Версия Bluetooth'),
-                'usb_type': all_specs.get('Тип USB'),
-                'usb_version': float(all_specs.get('Версия USB')),
-                'usb_features': [x.strip() for x in all_specs.get('Функции USB').split('- ')[1:]],
-                'gps': [x.strip() for x in all_specs.get('GPS').split('- ')[1:]],
-                'infrared_port': False if all_specs.get('Инфракрасный порт') == 'Нет' else True,
-                'type_of_sim_card': all_specs.get('Тип SIM'),
-                'multi_sim_mode': all_specs.get('Режим работы SIM'),
-                '_5g_support': False if all_specs.get('Поддержка 5G') == 'Нет' else True
+                'total_value': int(all_.get('Коммуникации')) if all_.get('Коммуникации') else None,
+                'nfc': False if all_.get('NFC*') == 'Нет' else True,
+                'number_of_sim': int(all_.get('Количество SIM*')) if all_.get('Количество SIM*') else None,
+                'esim_support': False if all_.get('Поддержка eSIM*') == 'Нет' else True,
+                'hybrid_slot': False if all_.get('Гибридный слот') == 'Нет' else True,
+                'wifi_standard': all_.get('Версия Wi-Fi'),
+                'wifi_features': [x.strip() for x in all_.get('Функции Wi-Fi').split('- ')[1:]] if all_.get(
+                    'Функции Wi-Fi') else None,
+                'bluetooth_version': all_.get('Версия Bluetooth'),
+                'usb_type': all_.get('Тип USB'),
+                'usb_version': float(all_.get('Версия USB')) if all_.get('Версия USB') else None,
+                'usb_features': [x.strip() for x in all_.get('Функции USB').split('- ')[1:]] if all_.get(
+                    'Функции USB') else None,
+                'gps': [x.strip() for x in all_.get('GPS').split('- ')[1:]] if all_.get('GPS') else None,
+                'infrared_port': False if all_.get('Инфракрасный порт') == 'Нет' else True,
+                'type_of_sim_card': all_.get('Тип SIM'),
+                'multi_sim_mode': all_.get('Режим работы SIM'),
+                '_5g_support': False if all_.get('Поддержка 5G') == 'Нет' else True
             },
             'physicalparameters': {
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
-                'height': float(all_specs.get('Высота').split(' ')[0]),
-                'width': float(all_specs.get('Ширина').split(' ')[0]),
-                'thickness': float(all_specs.get('Толщина').split(' ')[0]),
-                'weight': float(all_specs.get('Вес').split(' ')[0]),
-                'waterproof': False if all_specs.get('Водонепроницаемость') == 'Нет' else True,
-                'colors': [x for x in all_specs.get('Доступные цвета').split(',')],
-                'rear_material': all_specs.get('Материал задней панели'),
-                'frame_material': all_specs.get('Материал рамки'),
-                'fingerprint_scanner': all_specs.get('Сканер отпечатков пальцев'),
-                'operating_system': all_specs.get('Операционная система'),
-                'rom': all_specs.get('Оболочка UI'),
-                'speakers': all_specs.get('Динамики'),
-                'headphone_audio_jack': False if all_specs.get('3.5 мм аудио порт') == 'Нет' else True,
-                'fm_radio': False if all_specs.get('FM-Радио') == 'Нет' else True,
-                'dolby_atmos': False if all_specs.get('Dolby Atmos') == 'Нет' else True,
-                'charger_out_of_the_box': all_specs.get('Зарядное устройство из коробки')
+                'height': float(all_.get('Высота').split(' ')[0]) if all_.get('Высота') else None,
+                'width': float(all_.get('Ширина').split(' ')[0]) if all_.get('Ширина') else None,
+                'thickness': float(all_.get('Толщина').split(' ')[0]) if all_.get('Толщина') else None,
+                'weight': float(all_.get('Вес').split(' ')[0]) if all_.get('Вес') else None,
+                'waterproof': False if all_.get('Водонепроницаемость') == 'Нет' else True,
+                'colors': [x for x in all_.get('Доступные цвета').split(',')],
+                'rear_material': all_.get('Материал задней панели'),
+                'frame_material': all_.get('Материал рамки'),
+                'fingerprint_scanner': all_.get('Сканер отпечатков пальцев'),
+                'operating_system': all_.get('Операционная система'),
+                'rom': all_.get('Оболочка UI'),
+                'speakers': all_.get('Динамики'),
+                'headphone_audio_jack': False if all_.get('3.5 мм аудио порт') == 'Нет' else True,
+                'fm_radio': False if all_.get('FM-Радио') == 'Нет' else True,
+                'dolby_atmos': False if all_.get('Dolby Atmos') == 'Нет' else True,
+                'charger_out_of_the_box': all_.get('Зарядное устройство из коробки')
             }
         }
-        )
-    for k, v in data.get('physicalparameters').items():
-        print(k, v)
+    )
+    for key, value in data.items():
+        print(f'{key} {value}')
+    # for k, v in data.get('physicalparameters').items():
+    #     print(k, v)
 
-# for k, v in all_specs.items():
-#     print(k, v)
+    # for k, v in all_specs.items():
+    #     print(k, v)
+    #     key = 'afsdf'
+    #     try:
+    #
+    #         print(all_specs.pop(key))
+    #     except KeyError:
+    #         all_specs.setdefault(key, 543)

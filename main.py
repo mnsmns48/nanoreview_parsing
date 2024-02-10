@@ -9,6 +9,8 @@ from models import Base
 
 
 async def main():
+    # async with db.engine.begin() as async_connect:
+    #     await async_connect.run_sync(Base.metadata.create_all)
     await pars_link('https://nanoreview.net/ru/phone/xiaomi-redmi-a2')
     # await add_all_items()
     # print('If you want to parse the entire site, press "1", if you want to parse a separate link, then press "2"')
