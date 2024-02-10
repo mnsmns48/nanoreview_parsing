@@ -180,16 +180,24 @@ async def pars_link(link: str):
             }
         }
     )
-    for key, value in data.items():
-        print(f'{key} {value}')
-    # for k, v in data.get('physicalparameters').items():
-    #     print(k, v)
-
-    # for k, v in all_specs.items():
-    #     print(k, v)
-    #     key = 'afsdf'
-    #     try:
-    #
-    #         print(all_specs.pop(key))
-    #     except KeyError:
-    #         all_specs.setdefault(key, 543)
+    # for key, value in data.get('main').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('display').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('performance').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('camera').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('energy').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('communication').items():
+    #     print(f'{key} {value}')
+    # print('\n-----------------------------------------\n')
+    # for key, value in data.get('physicalparameters').items():
+    #     print(f'{key} {value}')
+    return data
