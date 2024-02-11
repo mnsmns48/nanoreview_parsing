@@ -96,7 +96,7 @@ async def add_all_items():
         parent_models = await get_parent_(session=db_session)
         dir_codes = [i.code for i in parent_models]
         for code in dir_codes:
-            links_to_rec = await get_links_by_code(session=db_session, code=8)
+            links_to_rec = await get_links_by_code(session=db_session, code=code)
             for link in links_to_rec:
                 await rec_link(link.link)
                 logger.debug(f'{link.title} add to DataBase')
