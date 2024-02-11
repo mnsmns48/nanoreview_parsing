@@ -106,7 +106,7 @@ class Communication(Base):
     title: Mapped[title_pk] = mapped_column(ForeignKey('main.title'))
     brand: Mapped[brand_pk]
     total_value: Mapped[Optional[int]] = mapped_column(SmallInteger)
-    nfc: Mapped[Optional[str]] = mapped_column(String(10))
+    nfc: Mapped[Optional[bool]]
     number_of_sim: Mapped[Optional[int]] = mapped_column(SmallInteger)
     esim_support: Mapped[Optional[bool]]
     hybrid_slot: Mapped[Optional[bool]]
@@ -116,7 +116,6 @@ class Communication(Base):
     usb_type: Mapped[Optional[str]] = mapped_column(String(20))
     usb_version: Mapped[Optional[float]]
     usb_features: Mapped[Optional[List]] = mapped_column(ARRAY(Text))
-    gps: Mapped[Optional[List]] = mapped_column(ARRAY(Text))
     infrared_port: Mapped[Optional[bool]]
     type_of_sim_card: Mapped[Optional[str]] = mapped_column(String(20))
     multi_sim_mode: Mapped[Optional[str]] = mapped_column(String(15))
@@ -149,4 +148,3 @@ class DataDirectory(Base):
     parent: Mapped[int]
     title: Mapped[str] = mapped_column(primary_key=True, unique=True)
     link: Mapped[str] = mapped_column(unique=True)
-    rec: Mapped[Optional[bool]]

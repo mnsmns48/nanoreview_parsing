@@ -3,8 +3,11 @@ import re
 import aiohttp
 from aiohttp import ClientTimeout
 from bs4 import BeautifulSoup
-from logic import ua
+from fake_useragent import UserAgent
+
 from support_func import data_convert
+
+ua = UserAgent()
 
 
 async def _all_specs(soup: BeautifulSoup) -> dict:
@@ -25,7 +28,7 @@ async def _all_specs(soup: BeautifulSoup) -> dict:
     return result_dict
 
 
-async def pars_link(link: str):
+async def pars_link(link: str) -> dict:
     data = dict()
     async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
         async with session.get(url=link,
@@ -102,7 +105,7 @@ async def pars_link(link: str):
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
                 'total_value': int(all_.get('Камера')) if all_.get('Камера') else None,
-                'matrix_main': float(all_.get('Матрица').split(' ')[0]) if all_.get('Матрица') else None,
+                'matrix_main': int(all_.get('Матрица').split(' ')[0]) if all_.get('Матрица') else None,
                 'image_resolution_main': all_.get('Разрешение фото'),
                 'zoom': all_.get('Зум'),
                 'flash': all_.get('Вспышка'),
@@ -119,7 +122,8 @@ async def pars_link(link: str):
                 'r1080p_video_recording': all_.get('Запись 1080p видео'),
                 'r4k_video_recording': all_.get('Запись 4K видео'),
                 'r8k_video_recording': all_.get('Запись 8K видео'),
-                'megapixels_front': all_.get('Количество мегапикселей'),
+                'megapixels_front': float(all_.get('Количество мегапикселей').split(' ')[0]) if all_.get(
+                    'Матрица') else None,
                 'aperture_front': all_.get('Апертура'),
                 'video_resolution': all_.get('Разрешение видео')
             },
@@ -152,7 +156,6 @@ async def pars_link(link: str):
                 'usb_version': float(all_.get('Версия USB')) if all_.get('Версия USB') else None,
                 'usb_features': [x.strip() for x in all_.get('Функции USB').split('- ')[1:]] if all_.get(
                     'Функции USB') else None,
-                'gps': [x.strip() for x in all_.get('GPS').split('- ')[1:]] if all_.get('GPS') else None,
                 'infrared_port': False if all_.get('Инфракрасный порт') == 'Нет' else True,
                 'type_of_sim_card': all_.get('Тип SIM'),
                 'multi_sim_mode': all_.get('Режим работы SIM'),
@@ -165,7 +168,7 @@ async def pars_link(link: str):
                 'width': float(all_.get('Ширина').split(' ')[0]) if all_.get('Ширина') else None,
                 'thickness': float(all_.get('Толщина').split(' ')[0]) if all_.get('Толщина') else None,
                 'weight': float(all_.get('Вес').split(' ')[0]) if all_.get('Вес') else None,
-                'waterproof': False if all_.get('Водонепроницаемость') == 'Нет' else True,
+                'waterproof': all_.get('Водонепроницаемость'),
                 'colors': [x for x in all_.get('Доступные цвета').split(',')],
                 'rear_material': all_.get('Материал задней панели'),
                 'frame_material': all_.get('Материал рамки'),

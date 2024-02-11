@@ -4,10 +4,10 @@ from sqlalchemy import select, Result, Row, RowMapping
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from models import DataDirectory
+from models import DataDirectory, Main, Display, Performance, Camera, Energy, Communication, PhysicalParameters
 
 
-async def add_data(session: AsyncSession, data: list):
+async def add_path_data(session: AsyncSession, data: list):
     stmt = insert(table=DataDirectory).values(data)
     await session.execute(stmt)
     await session.commit()
@@ -31,13 +31,24 @@ async def get_all_paths(session: AsyncSession):
     return result.scalars().all()
 
 
-async def get_items(session: AsyncSession, code: int):
+async def get_items_by_code(session: AsyncSession, code: int):
     query = select(DataDirectory.title).filter(DataDirectory.parent == code)
     result: Result = await session.execute(query)
     return result.scalars().all()
 
 
-async def get_links(session: AsyncSession, code: int):
+async def get_links_by_code(session: AsyncSession, code: int):
     query = select(DataDirectory.link).filter(DataDirectory.parent == code)
     result: Result = await session.execute(query)
     return result.scalars().all()
+
+
+async def add_one_link(session: AsyncSession, data: dict):
+    await session.execute(Main.__table__.insert(), data.get('main'))
+    await session.execute(Display.__table__.insert(), data.get('display'))
+    await session.execute(Performance.__table__.insert(), data.get('performance'))
+    await session.execute(Camera.__table__.insert(), data.get('camera'))
+    await session.execute(Energy.__table__.insert(), data.get('energy'))
+    await session.execute(Communication.__table__.insert(), data.get('communication'))
+    await session.execute(PhysicalParameters.__table__.insert(), data.get('physicalparameters'))
+    await session.commit()
