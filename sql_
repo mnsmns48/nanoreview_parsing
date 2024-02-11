@@ -1,0 +1,1 @@
+ALTER TABLE <table> ALTER COLUMN matrix_main TYPE Float;

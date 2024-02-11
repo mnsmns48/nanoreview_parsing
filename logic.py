@@ -7,7 +7,8 @@ from bs4 import BeautifulSoup
 
 from bs import pars_link, ua
 from config import hidden
-from core import get_all_paths, add_path_data, get_parent_, get_items_by_code, add_one_link, get_links_by_code
+from core import get_all_paths, add_path_data, get_parent_, get_items_by_code, add_one_link, get_links_by_code, \
+    get_parent_by_title
 from engine import db
 from logger import logger
 
@@ -85,21 +86,28 @@ async def update_items_in_datadir():
         await asyncio.sleep(random.randint(2, 5))
 
 
-async def rec_link(link: str):
-    data = await pars_link(link=link)
+async def rec_link(link: str, to_path: bool):
+    item_data = await pars_link(link=link)
     async with db.scoped_session() as db_session:
-        await add_one_link(session=db_session, data=data)
+        await add_one_link(session=db_session, data=item_data)
+        if to_path:
+            await add_path_data(session=db_session, data=[
+                {
+                    'parent': await get_parent_by_title(session=db_session, title=item_data.get('main')['title']),
+                    'title': item_data.get('main')['title'],
+                    'link': link
+                }
+            ]
+                                )
 
 
 async def add_all_items():
     async with db.scoped_session() as db_session:
         parent_models = await get_parent_(session=db_session)
-        dir_codes = [i.code for i in parent_models]
-        for code in dir_codes:
-            links_to_rec = await get_links_by_code(session=db_session, code=code)
+        for line in parent_models:
+            links_to_rec = await get_links_by_code(session=db_session, code=line.code)
             for link in links_to_rec:
-                await rec_link(link.link)
-                logger.debug(f'{link.title} add to DataBase')
-                sek = random.randint(3, 8)
+                await rec_link(link.link, to_path=False)
+                sek = random.randint(3, 5)
+                logger.debug(f"{link.title} add to DataBase. I'm waiting {sek} sek")
                 await asyncio.sleep(sek)
-                print("I'm waiting", sek, 'sek')

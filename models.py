@@ -71,7 +71,7 @@ class Camera(Base):
     title: Mapped[title_pk] = mapped_column(ForeignKey('main.title'))
     brand: Mapped[brand_pk]
     total_value: Mapped[Optional[int]] = mapped_column(SmallInteger)
-    matrix_main: Mapped[Optional[int]] = mapped_column(SmallInteger)
+    matrix_main: Mapped[Optional[float]]
     image_resolution_main: Mapped[Optional[str]] = mapped_column(String(15))
     zoom: Mapped[Optional[str]] = mapped_column(String(50))
     flash: Mapped[Optional[str]] = mapped_column(String(15))
@@ -98,7 +98,7 @@ class Energy(Base):
     battery_type: Mapped[Optional[str]] = mapped_column(String(35))
     wireless_charging: Mapped[Optional[str]] = mapped_column(String(30))
     reverse_charging: Mapped[Optional[str]] = mapped_column(String(30))
-    fast_charging: Mapped[Optional[str]] = mapped_column(String(30))
+    fast_charging: Mapped[Optional[str]] = mapped_column(String(50))
     full_charging_time: Mapped[Optional[str]] = mapped_column(String(15))
 
 

@@ -45,10 +45,8 @@ async def pars_link(link: str) -> dict:
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
                 'category': all_.get('Класс') if 'Класс' in all_.keys() else None,
-                'advantage': [i.text for i in
-                              soup.find('ul', class_='proscons-list two-columns-item').find_all('li')],
-                'disadvantage': [i.text for i in
-                                 soup.find_all('ul', class_='proscons-list two-columns-item')[1].find_all('li')],
+                'advantage': [i.find_previous().getText() for i in soup.find_all(class_='icn-plus-css')],
+                'disadvantage': [i.find_previous().getText() for i in soup.find_all(class_='icn-minus-css')],
                 'total_score': int(all_.get('Итоговая оценка')) if 'Итоговая оценка' in all_.keys() else None,
                 'announced': await data_convert(all_.get('Дата выхода')) if 'Дата выхода' in all_.keys() else None,
                 'release_date': await data_convert(all_.get('Дата начала продаж')) if 'Дата начала продаж'
@@ -105,7 +103,7 @@ async def pars_link(link: str) -> dict:
                 'title': soup.find('h1', class_="title-h1").text,
                 'brand': soup.find('h1', class_="title-h1").text.split(' ')[0],
                 'total_value': int(all_.get('Камера')) if all_.get('Камера') else None,
-                'matrix_main': int(all_.get('Матрица').split(' ')[0]) if all_.get('Матрица') else None,
+                'matrix_main': float(all_.get('Матрица').split(' ')[0]) if all_.get('Матрица') else None,
                 'image_resolution_main': all_.get('Разрешение фото'),
                 'zoom': all_.get('Зум'),
                 'flash': all_.get('Вспышка'),
@@ -182,6 +180,8 @@ async def pars_link(link: str) -> dict:
             }
         }
     )
+    return data
+
     # for key, value in data.get('main').items():
     #     print(f'{key} {value}')
     # print('\n-----------------------------------------\n')
@@ -202,4 +202,3 @@ async def pars_link(link: str) -> dict:
     # print('\n-----------------------------------------\n')
     # for key, value in data.get('physicalparameters').items():
     #     print(f'{key} {value}')
-    return data

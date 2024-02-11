@@ -25,6 +25,13 @@ async def check_title(session: AsyncSession, title: str):
     return res_title.scalar()
 
 
+async def get_parent_by_title(session: AsyncSession, title: str) -> int:
+    brand = title.split(' ')[0]
+    query = select(DataDirectory.code).filter(DataDirectory.title == f'Каталог смартфонов {brand}')
+    res_title: Result = await session.execute(query)
+    return res_title.scalar()
+
+
 async def get_all_paths(session: AsyncSession):
     query = select(DataDirectory.link).filter(DataDirectory.parent == 0)
     result: Result = await session.execute(query)
