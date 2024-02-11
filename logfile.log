@@ -37,3 +37,529 @@ DETAIL:  Ключ "(title)=(Asus ROG Phone 5)" уже существует.
 [SQL: INSERT INTO datadirectory (parent, title, link) VALUES ($1::INTEGER, $2::VARCHAR, $3::VARCHAR)]
 [parameters: (1, 'Asus ROG Phone 5', 'https://nanoreview.net/ru/phone/asus-rog-phone-5')]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-02-11 20:46:11,484 Каталог смартфонов Other add to DataBase
+2024-02-11 20:46:16,750 Каталог смартфонов Honor add to DataBase
+2024-02-11 20:46:21,063 Каталог смартфонов Motorola add to DataBase
+2024-02-11 20:46:24,737 Каталог смартфонов Asus add to DataBase
+2024-02-11 20:46:29,376 Каталог смартфонов Huawei add to DataBase
+2024-02-11 20:46:32,086 Каталог смартфонов Apple add to DataBase
+2024-02-11 20:46:33,724 Каталог смартфонов ZTE add to DataBase
+2024-02-11 20:46:35,403 Каталог смартфонов Vivo add to DataBase
+2024-02-11 20:46:39,105 Каталог смартфонов OnePlus add to DataBase
+2024-02-11 20:46:41,863 Каталог смартфонов Samsung add to DataBase
+2024-02-11 20:46:43,476 Каталог смартфонов Sony add to DataBase
+2024-02-11 20:46:46,768 Каталог смартфонов Xiaomi add to DataBase
+2024-02-11 20:46:48,433 Каталог смартфонов Oppo add to DataBase
+2024-02-11 20:46:50,064 Каталог смартфонов Nokia add to DataBase
+2024-02-11 20:46:55,453 Каталог смартфонов Google add to DataBase
+2024-02-11 20:46:59,628 Каталог смартфонов Realme add to DataBase
+2024-02-11 20:47:04,976 << Infinix Zero 5G >> add to DataBase
+2024-02-11 20:47:04,976 << Tecno Camon 20 Pro >> add to DataBase
+2024-02-11 20:47:04,976 << Nothing Phone (1) >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Pova 4 >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Pova 5 Pro >> add to DataBase
+2024-02-11 20:47:04,977 << Infinix Note 30 Pro >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Spark 20C >> add to DataBase
+2024-02-11 20:47:04,977 << Nothing Phone (2) >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Spark 10C >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Pop 8 >> add to DataBase
+2024-02-11 20:47:04,977 << Tecno Camon 20 >> add to DataBase
+2024-02-11 20:47:04,978 << Infinix Hot 30i >> add to DataBase
+2024-02-11 20:47:04,978 << Infinix Smart 7 >> add to DataBase
+2024-02-11 20:47:04,978 << Tecno Spark 8C >> add to DataBase
+2024-02-11 20:47:04,978 << Tecno Camon 20 Pro 5G >> add to DataBase
+2024-02-11 20:47:04,978 << Infinix Note 30 VIP >> add to DataBase
+2024-02-11 20:47:04,978 << Tecno Pova 5 >> add to DataBase
+2024-02-11 20:47:04,978 << Infinix Hot 40 >> add to DataBase
+2024-02-11 20:47:04,979 << Tecno Pova 3 >> add to DataBase
+2024-02-11 20:47:04,979 << Tecno Pova 4 Pro >> add to DataBase
+2024-02-11 20:47:04,979 << Tecno Spark 10 >> add to DataBase
+2024-02-11 20:47:04,979 << Tecno Camon 19 Pro >> add to DataBase
+2024-02-11 20:47:04,979 << Tecno Spark 10 Pro >> add to DataBase
+2024-02-11 20:47:04,979 << Infinix Hot 40i >> add to DataBase
+2024-02-11 20:47:04,979 << Infinix GT 10 Pro >> add to DataBase
+2024-02-11 20:47:04,979 << Infinix Note 12 Pro >> add to DataBase
+2024-02-11 20:47:04,979 << Infinix Note 12 (2023) >> add to DataBase
+2024-02-11 20:47:04,980 << Infinix Zero 30 5G >> add to DataBase
+2024-02-11 20:47:04,980 << Tecno Pova Neo 3 >> add to DataBase
+2024-02-11 20:47:04,980 << Tecno Pova 2 >> add to DataBase
+2024-02-11 20:47:04,980 << Infinix Hot 30 >> add to DataBase
+2024-02-11 20:47:04,980 << Tecno Camon 20 Premier >> add to DataBase
+2024-02-11 20:47:04,980 << Infinix Note 10 Pro >> add to DataBase
+2024-02-11 20:47:04,980 << Tecno Spark Go 2024 >> add to DataBase
+2024-02-11 20:47:04,980 << Fairphone 5 >> add to DataBase
+2024-02-11 20:47:04,981 << Infinix Note 30 >> add to DataBase
+2024-02-11 20:47:04,981 << Tecno Camon 19 >> add to DataBase
+2024-02-11 20:47:04,981 << Infinix Note 30i >> add to DataBase
+2024-02-11 20:47:04,981 << Infinix Hot 40 Pro >> add to DataBase
+2024-02-11 20:47:04,981 << Tecno Spark Go 2023 >> add to DataBase
+2024-02-11 20:47:09,362 << Honor X9b >> add to DataBase
+2024-02-11 20:47:09,362 << Honor X8a >> add to DataBase
+2024-02-11 20:47:09,362 << Honor X7b >> add to DataBase
+2024-02-11 20:47:09,363 << Honor 70 >> add to DataBase
+2024-02-11 20:47:09,363 << Honor Magic 5 Lite >> add to DataBase
+2024-02-11 20:47:09,363 << Honor Magic 5 >> add to DataBase
+2024-02-11 20:47:09,364 << Honor 70 Lite >> add to DataBase
+2024-02-11 20:47:09,364 << Honor 50 >> add to DataBase
+2024-02-11 20:47:09,364 << Honor Magic 5 Pro >> add to DataBase
+2024-02-11 20:47:09,365 << Honor 9X >> add to DataBase
+2024-02-11 20:47:09,365 << Honor X7 >> add to DataBase
+2024-02-11 20:47:09,365 << Honor X7a >> add to DataBase
+2024-02-11 20:47:09,366 << Honor Magic 6 >> add to DataBase
+2024-02-11 20:47:09,366 << Honor X9a >> add to DataBase
+2024-02-11 20:47:09,366 << Honor 20 >> add to DataBase
+2024-02-11 20:47:09,367 << Honor 8X >> add to DataBase
+2024-02-11 20:47:09,367 << Honor Magic 5 Ultimate >> add to DataBase
+2024-02-11 20:47:09,367 << Honor Magic 4 Pro >> add to DataBase
+2024-02-11 20:47:09,367 << Honor Magic V2 >> add to DataBase
+2024-02-11 20:47:09,368 << Honor 10 Lite >> add to DataBase
+2024-02-11 20:47:09,368 << Honor X8 (2022) >> add to DataBase
+2024-02-11 20:47:09,368 << Honor X8b >> add to DataBase
+2024-02-11 20:47:09,368 << Honor 100 Pro >> add to DataBase
+2024-02-11 20:47:09,369 << Honor Magic 6 Pro >> add to DataBase
+2024-02-11 20:47:09,369 << Honor 100 >> add to DataBase
+2024-02-11 20:47:09,369 << Honor 90 >> add to DataBase
+2024-02-11 20:47:09,369 << Honor 20 Pro >> add to DataBase
+2024-02-11 20:47:09,370 << Honor 90 GT >> add to DataBase
+2024-02-11 20:47:09,370 << Honor 90 Lite >> add to DataBase
+2024-02-11 20:47:09,370 << Honor 10 >> add to DataBase
+2024-02-11 20:47:09,370 << Honor 8A >> add to DataBase
+2024-02-11 20:47:09,370 << Honor Magic 6 Lite >> add to DataBase
+2024-02-11 20:47:15,458 << Motorola Moto G Power (2022) >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Moto G7 >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Moto G32 >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Moto G Stylus (2022) >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Moto G Power (2021) >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Moto G Stylus (2021) >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Edge 40 >> add to DataBase
+2024-02-11 20:47:15,459 << Motorola Razr Plus >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola ThinkPhone >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Moto G72 >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Edge 30 >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Edge 30 Ultra >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Moto G52 >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Moto G30 >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Moto G62 5G >> add to DataBase
+2024-02-11 20:47:15,460 << Motorola Moto G Power 5G >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Edge Plus (2023) >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Moto G23 >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Edge Plus (2022) >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Edge (2021) >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Moto G84 5G >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Moto G (2023) >> add to DataBase
+2024-02-11 20:47:15,461 << Motorola Moto G Stylus 5G (2023) >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G 5G >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G14 >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G73 >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G54 Power 5G >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G Play (2024) >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola G Pure >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Edge 30 Neo >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G04 >> add to DataBase
+2024-02-11 20:47:15,462 << Motorola Moto G Play (2021) >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Razr (2023) >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G22 >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Edge 20 >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G13 >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G82 5G >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G Stylus (2023) >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G53 >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G34 >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Edge (2023) >> add to DataBase
+2024-02-11 20:47:15,463 << Motorola Moto G31 >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Edge (2022) >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola One 5G Ace >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Edge 30 Fusion >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Moto G24 >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Moto G50 >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Moto G Play (2023) >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Edge 40 Neo >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Edge 40 Pro >> add to DataBase
+2024-02-11 20:47:15,464 << Motorola Moto G54 5G >> add to DataBase
+2024-02-11 20:47:20,617 << Asus ROG Phone 7 >> add to DataBase
+2024-02-11 20:47:20,617 << Asus ROG Phone 6D >> add to DataBase
+2024-02-11 20:47:20,617 << Asus ROG Phone 6 >> add to DataBase
+2024-02-11 20:47:20,617 << Asus ROG Phone 5 >> add to DataBase
+2024-02-11 20:47:20,617 << Asus ROG Phone 7 Ultimate >> add to DataBase
+2024-02-11 20:47:20,617 << Asus Zenfone 10 >> add to DataBase
+2024-02-11 20:47:20,618 << Asus ROG Phone 8 Pro >> add to DataBase
+2024-02-11 20:47:20,618 << Asus ROG Phone 8 >> add to DataBase
+2024-02-11 20:47:20,618 << Asus Zenfone 9 >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei Nova 11 >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei P40 Pro >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei Mate 60 Pro Plus >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei Nova 11 Pro >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei P30 Lite >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei Mate 20 Pro >> add to DataBase
+2024-02-11 20:47:26,985 << Huawei Nova Y91 >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei Nova 5T >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei Nova 9 >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei P40 >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei Nova 12 Pro >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei P50 Pro >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei P30 Pro >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei P30 >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei P60 >> add to DataBase
+2024-02-11 20:47:26,986 << Huawei Nova 12 Ultra >> add to DataBase
+2024-02-11 20:47:26,987 << Honor 90 Pro >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei P20 Pro >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei Nova 12 Lite >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei Nova 12 >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei Mate 50 Pro >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei P40 Lite >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei Mate 60 Pro >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei Mate 60 >> add to DataBase
+2024-02-11 20:47:26,987 << Huawei P60 Pro >> add to DataBase
+2024-02-11 20:47:33,430 << Apple iPhone 12 Pro >> add to DataBase
+2024-02-11 20:47:33,431 << Apple iPhone 13 >> add to DataBase
+2024-02-11 20:47:33,431 << Apple iPhone X >> add to DataBase
+2024-02-11 20:47:33,431 << Apple iPhone 11 Pro >> add to DataBase
+2024-02-11 20:47:33,431 << Apple iPhone XS Max >> add to DataBase
+2024-02-11 20:47:33,431 << Apple iPhone 12 >> add to DataBase
+2024-02-11 20:47:33,432 << Apple iPhone 15 >> add to DataBase
+2024-02-11 20:47:33,432 << Apple iPhone 15 Plus >> add to DataBase
+2024-02-11 20:47:33,432 << Apple iPhone 13 Pro Max >> add to DataBase
+2024-02-11 20:47:33,432 << Apple iPhone 14 >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone 8 Plus >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone XR >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone 12 mini >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone 14 Plus >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone 11 >> add to DataBase
+2024-02-11 20:47:33,433 << Apple iPhone 13 mini >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 15 Pro >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 14 Pro Max >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 12 Pro Max >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 7 >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 11 Pro Max >> add to DataBase
+2024-02-11 20:47:33,434 << Apple iPhone 14 Pro >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone XS >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone 15 Pro Max >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone 13 Pro >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone 7 Plus >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone SE (2022) >> add to DataBase
+2024-02-11 20:47:33,435 << Apple iPhone 8 >> add to DataBase
+2024-02-11 20:47:33,436 << Apple iPhone SE (2020) >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 8 Pro Plus >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 9 Pro >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 7S Pro >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 8S Pro >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 8 Pro >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Red Magic 9 Pro Plus >> add to DataBase
+2024-02-11 20:47:39,347 << ZTE Nubia Z50 Ultra >> add to DataBase
+2024-02-11 20:47:39,348 << ZTE Nubia Z60 Ultra >> add to DataBase
+2024-02-11 20:47:39,348 << ZTE nubia Red Magic 7 >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo iQOO Neo 7 Pro >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo iQOO Neo 9 >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo V29 Pro >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo iQOO 12 Pro >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo V29 >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo V27 >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo iQOO Neo 7 >> add to DataBase
+2024-02-11 20:47:44,546 << Vivo V27e >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo X100 Pro >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo iQOO Neo 9 Pro >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo iQOO Neo 8 Pro >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo X90 Pro >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo iQOO 12 >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo Y36 >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo V27 Pro >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo X100 >> add to DataBase
+2024-02-11 20:47:44,547 << Vivo X90 Pro Plus >> add to DataBase
+2024-02-11 20:47:56,160 << OnePlus Nord N30 SE >> add to DataBase
+2024-02-11 20:47:56,161 << OnePlus Ace 2 Pro >> add to DataBase
+2024-02-11 20:47:56,161 << OnePlus 7 Pro >> add to DataBase
+2024-02-11 20:47:56,161 << OnePlus 9 Pro >> add to DataBase
+2024-02-11 20:47:56,161 << OnePlus Ace >> add to DataBase
+2024-02-11 20:47:56,162 << OnePlus Nord N10 >> add to DataBase
+2024-02-11 20:47:56,162 << OnePlus Nord N200 5G >> add to DataBase
+2024-02-11 20:47:56,162 << OnePlus Nord 2 5G >> add to DataBase
+2024-02-11 20:47:56,162 << OnePlus 11R >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Nord 2T >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus 11 >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus 12 >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus 9R >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Ace 2 >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Nord N20 5G >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Nord N300 >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Nord 3 >> add to DataBase
+2024-02-11 20:47:56,163 << OnePlus Nord >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 7T >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 10T 5G >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 8 >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 8T >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus Nord CE 3 Lite >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 9 >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus Open >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus 8 Pro >> add to DataBase
+2024-02-11 20:47:56,164 << OnePlus Nord CE3 5G >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus Nord N30 5G >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus 12R >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus 10 Pro >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus Ace 2V >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus 10R >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus 9RT >> add to DataBase
+2024-02-11 20:47:56,165 << OnePlus Ace 3 >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy S22 Ultra (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy A52 5G >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy A52 >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy A02 >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy A13 >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy S22 Ultra >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy A03 Core >> add to DataBase
+2024-02-11 20:48:01,036 << Samsung Galaxy M53 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy S20 FE 5G >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy Z Fold 3 5G >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy S24 Ultra >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy M51 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy A73 5G >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy A14 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy A04 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy A72 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy Z Fold 5 >> add to DataBase
+2024-02-11 20:48:01,037 << Samsung Galaxy A22 >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy A22 5G >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy A04e >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy S23 Ultra >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy A52s 5G >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy S21 >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy A05 >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy Z Flip 3 5G >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy S24 (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,038 << Samsung Galaxy A25 >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy Xcover 7 >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy S22 Plus >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy A04s >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy Z Flip 5 >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy M33 5G >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy S23 >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy A03s >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy A23 >> add to DataBase
+2024-02-11 20:48:01,039 << Samsung Galaxy S20 FE >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy M23 >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy S21 FE 5G >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy A02s >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy M13 >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy S23 FE (Exynos) >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy A15 5G >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy A54 5G >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy S23 Plus >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy S21 Ultra >> add to DataBase
+2024-02-11 20:48:01,040 << Samsung Galaxy A23 5G >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A15 4G >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy M54 >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A42 >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy M32 >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy Xcover 6 Pro >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A05s >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A14 5G >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A21s >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy S22 Plus (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,041 << Samsung Galaxy A12 >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy M52 5G >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy M34 5G >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy S22 >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy A53 5G >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy M14 >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy A03 >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy S24 Plus (Exynos) >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy A13 5G >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy S22 (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,042 << Samsung Galaxy Z Flip 4 >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy Z Fold 4 >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy Z Fold 2 >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy A24 4G >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy A32 >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy S24 (Exynos) >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy A32 5G >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy M12 >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy Note 20 Ultra >> add to DataBase
+2024-02-11 20:48:01,043 << Samsung Galaxy A34 5G >> add to DataBase
+2024-02-11 20:48:01,044 << Samsung Galaxy S24 Plus (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,044 << Samsung Galaxy Note 20 >> add to DataBase
+2024-02-11 20:48:01,044 << Samsung Galaxy A33 5G >> add to DataBase
+2024-02-11 20:48:01,044 << Samsung Galaxy S23 FE (Snapdragon) >> add to DataBase
+2024-02-11 20:48:01,044 << Samsung Galaxy S21 Plus >> add to DataBase
+2024-02-11 20:48:06,756 << Sony Xperia 1 III >> add to DataBase
+2024-02-11 20:48:06,756 << Sony Xperia 1 IV >> add to DataBase
+2024-02-11 20:48:06,756 << Sony Xperia 1 II >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 5 II >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 5 IV >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 5 V >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 5 >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 1 V >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 10 V >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 1 >> add to DataBase
+2024-02-11 20:48:06,757 << Sony Xperia 10 IV >> add to DataBase
+2024-02-11 20:48:13,661 << Xiaomi Redmi Note 11E Pro >> add to DataBase
+2024-02-11 20:48:13,661 << Xiaomi 14 >> add to DataBase
+2024-02-11 20:48:13,661 << Xiaomi Redmi 10 2022 >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi 13 Pro >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi Poco X6 >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi Poco M4 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi 12T Pro >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi 13 Ultra >> add to DataBase
+2024-02-11 20:48:13,662 << Xiaomi Poco M5s >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi 13T Pro >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Poco F5 >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Redmi K60 Pro >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Poco X5 >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Redmi K70 >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Redmi Note 13 5G >> add to DataBase
+2024-02-11 20:48:13,663 << Xiaomi Poco F4 GT >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Redmi 10A >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Poco X4 GT >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Redmi Note 13 Pro Plus 5G >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Redmi Note 12T Pro >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Redmi 12 >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi 13T >> add to DataBase
+2024-02-11 20:48:13,664 << Xiaomi Poco X3 GT >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Redmi K60 >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Poco C65 >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Redmi Note 13 4G >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Redmi Note 11 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Poco X5 Pro >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi 12S Ultra >> add to DataBase
+2024-02-11 20:48:13,665 << Xiaomi Redmi K60 Ultra >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Poco M6 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi 14 Pro >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Poco M4 Pro >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Redmi A2 >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Poco M6 5G >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Redmi K70 Pro >> add to DataBase
+2024-02-11 20:48:13,666 << Xiaomi Redmi Note 11 Pro Plus >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi Redmi Note 12S >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi Redmi 10C >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi 12 >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi Redmi 13C 5G >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi Mix Fold 3 >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi 13 >> add to DataBase
+2024-02-11 20:48:13,667 << Xiaomi 12X >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi 12 Lite >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi Redmi 13C >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi Poco M5 >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi Redmi Note 12 Pro >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi Redmi K70E >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi 11T Pro >> add to DataBase
+2024-02-11 20:48:13,668 << Xiaomi Redmi Note 12 >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi 13 Lite >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Mi 11 Ultra >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Redmi 12C >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Poco M6 Pro >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Redmi Note 12 5G >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Poco F4 >> add to DataBase
+2024-02-11 20:48:13,669 << Xiaomi Redmi Note 13 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Redmi Note 12 Turbo >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Redmi 12 5G >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Poco X6 Pro >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Redmi 10 >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Redmi Note 11 Pro (Global) >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Poco M3 Pro >> add to DataBase
+2024-02-11 20:48:13,670 << Xiaomi Redmi Note 13 Pro 4G >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi Redmi Note 12R >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi Redmi Note 11S >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi Redmi Note 12 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi 12S >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi 11T >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi Poco C40 >> add to DataBase
+2024-02-11 20:48:13,671 << Xiaomi Poco X4 Pro 5G >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi Redmi Note 11 >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi Redmi Note 12 Pro Plus 5G >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi Poco F5 Pro >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi Mi 11 Lite 5G >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi Mi 11 Pro >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi 12T >> add to DataBase
+2024-02-11 20:48:13,672 << Xiaomi 11 Lite 5G NE >> add to DataBase
+2024-02-11 20:48:13,673 << Xiaomi 12 Pro >> add to DataBase
+2024-02-11 20:48:18,610 << Oppo Find X6 >> add to DataBase
+2024-02-11 20:48:18,610 << Oppo Find X7 Ultra >> add to DataBase
+2024-02-11 20:48:18,610 << Oppo A98 >> add to DataBase
+2024-02-11 20:48:18,610 << Oppo A54 >> add to DataBase
+2024-02-11 20:48:18,610 << Oppo Find X5 >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 11 Pro >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 10 Pro 5G >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo A78 >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 8 Pro >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 10 5G >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Find X6 Pro >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Find X3 Pro >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 8 >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo Reno 8T >> add to DataBase
+2024-02-11 20:48:18,611 << Oppo A96 >> add to DataBase
+2024-02-11 20:48:18,612 << Oppo Find X5 Lite >> add to DataBase
+2024-02-11 20:48:18,612 << Oppo Find X5 Pro >> add to DataBase
+2024-02-11 20:48:18,612 << Oppo Reno 11 >> add to DataBase
+2024-02-11 20:48:18,612 << Oppo Find X2 Pro >> add to DataBase
+2024-02-11 20:48:18,612 << Oppo Find X3 Neo >> add to DataBase
+2024-02-11 20:48:24,440 << Nokia G42 >> add to DataBase
+2024-02-11 20:48:24,440 << Nokia G310 5G >> add to DataBase
+2024-02-11 20:48:24,441 << Nokia XR20 >> add to DataBase
+2024-02-11 20:48:24,441 << Nokia G11 >> add to DataBase
+2024-02-11 20:48:24,441 << Nokia X30 >> add to DataBase
+2024-02-11 20:48:24,442 << Nokia G21 >> add to DataBase
+2024-02-11 20:48:24,442 << Nokia G20 >> add to DataBase
+2024-02-11 20:48:24,442 << Nokia G22 >> add to DataBase
+2024-02-11 20:48:24,442 << Nokia G60 >> add to DataBase
+2024-02-11 20:48:24,442 << Nokia XR21 >> add to DataBase
+2024-02-11 20:48:24,443 << Nokia C32 >> add to DataBase
+2024-02-11 20:48:27,322 << Google Pixel 3a >> add to DataBase
+2024-02-11 20:48:27,322 << Google Pixel 4 XL >> add to DataBase
+2024-02-11 20:48:27,323 << Google Pixel 7a >> add to DataBase
+2024-02-11 20:48:27,323 << Google Pixel 5a 5G >> add to DataBase
+2024-02-11 20:48:27,323 << Google Pixel 7 Pro >> add to DataBase
+2024-02-11 20:48:27,324 << Google Pixel 6a >> add to DataBase
+2024-02-11 20:48:27,324 << Google Pixel 7 >> add to DataBase
+2024-02-11 20:48:27,325 << Google Pixel 3 XL >> add to DataBase
+2024-02-11 20:48:27,325 << Google Pixel 8 Pro >> add to DataBase
+2024-02-11 20:48:27,325 << Google Pixel 5 >> add to DataBase
+2024-02-11 20:48:27,326 << Google Pixel Fold >> add to DataBase
+2024-02-11 20:48:27,326 << Google Pixel 6 Pro >> add to DataBase
+2024-02-11 20:48:27,327 << Google Pixel 4a 5G >> add to DataBase
+2024-02-11 20:48:27,327 << Google Pixel 3 >> add to DataBase
+2024-02-11 20:48:27,327 << Google Pixel 6 >> add to DataBase
+2024-02-11 20:48:27,328 << Google Pixel 4a >> add to DataBase
+2024-02-11 20:48:27,328 << Google Pixel 8 >> add to DataBase
+2024-02-11 20:48:27,329 << Google Pixel 4 >> add to DataBase
+2024-02-11 20:48:31,180 << Realme GT2 Pro >> add to DataBase
+2024-02-11 20:48:31,180 << Realme GT 5G >> add to DataBase
+2024-02-11 20:48:31,180 << Realme 11 Pro Plus >> add to DataBase
+2024-02-11 20:48:31,181 << Realme 6 >> add to DataBase
+2024-02-11 20:48:31,181 << Realme 9 5G >> add to DataBase
+2024-02-11 20:48:31,181 << Realme 10 >> add to DataBase
+2024-02-11 20:48:31,182 << Realme GT3 >> add to DataBase
+2024-02-11 20:48:31,182 << Realme 9 >> add to DataBase
+2024-02-11 20:48:31,182 << Realme C35 >> add to DataBase
+2024-02-11 20:48:31,182 << Realme C33 >> add to DataBase
+2024-02-11 20:48:31,183 << Realme 10 Pro >> add to DataBase
+2024-02-11 20:48:31,183 << Realme GT Neo 5 >> add to DataBase
+2024-02-11 20:48:31,183 << Realme GT Master Edition >> add to DataBase
+2024-02-11 20:48:31,183 << Realme GT5 Pro >> add to DataBase
+2024-02-11 20:48:31,184 << Realme 11 Pro >> add to DataBase
+2024-02-11 20:48:31,184 << Realme 9 Pro >> add to DataBase
+2024-02-11 20:48:31,184 << Realme C67 >> add to DataBase
+2024-02-11 20:48:31,184 << Realme 11 >> add to DataBase
+2024-02-11 20:48:31,185 << Realme GT Neo 3T >> add to DataBase
+2024-02-11 20:48:31,185 << Realme 9 Pro Plus >> add to DataBase
+2024-02-11 20:48:31,185 << Realme 12 Pro 5G >> add to DataBase
+2024-02-11 20:48:31,185 << Realme C51 >> add to DataBase
+2024-02-11 20:48:31,186 << Realme C30 >> add to DataBase
+2024-02-11 20:48:31,186 << Realme 12 Pro Plus 5G >> add to DataBase
+2024-02-11 20:48:31,186 << Realme 8i >> add to DataBase
+2024-02-11 20:48:31,186 << Realme C55 >> add to DataBase
+2024-02-11 20:48:31,186 << Realme GT5 >> add to DataBase
+2024-02-11 20:48:31,186 << Realme C53 >> add to DataBase
+2024-02-11 20:48:31,186 << Realme 9i >> add to DataBase
+2024-02-11 20:48:31,187 << Realme GT Neo 2 >> add to DataBase
+2024-02-11 20:48:31,187 << Realme 8 Pro >> add to DataBase
+2024-02-11 20:48:31,187 << Realme 10 Pro Plus >> add to DataBase
+2024-02-11 20:48:31,187 << Realme GT Neo 3 >> add to DataBase
+2024-02-11 20:48:31,187 << Realme GT Neo 5 SE >> add to DataBase
+2024-02-11 20:48:31,187 << Realme 6 Pro >> add to DataBase
+2024-02-11 20:48:31,187 << Realme C30s >> add to DataBase
+2024-02-11 20:48:31,187 << Realme 8 >> add to DataBase
+2024-02-11 20:48:35,259 Done. no errors
+2024-02-11 20:48:35,259 Success. Script stopped
+2024-02-11 22:12:11,227 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+2024-02-11 22:12:34,566 Invalid title in OLD BASE
+2024-02-11 22:12:49,556 Invalid title in OLD BASE
+2024-02-11 22:13:50,183 Invalid title in OLD BASE
+2024-02-11 22:16:01,107 Invalid title in OLD BASE

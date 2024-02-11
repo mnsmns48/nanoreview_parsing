@@ -11,6 +11,7 @@ class Hidden:
     db_local_port: int
     db_name: str
     links: list
+    old_db: str
 
 
 def load_hidden_vars(path: str):
@@ -26,7 +27,8 @@ def load_hidden_vars(path: str):
         db_password=env.str("DB_PASSWORD"),
         db_local_port=env.int("DB_LOCAL_PORT"),
         db_name=env.str("DB_NAME"),
-        links=links
+        links=links,
+        old_db=env.str("OLD_DB")
     )
 
 

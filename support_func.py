@@ -14,3 +14,18 @@ async def data_convert(data: str) -> str:
         'Декабрь': '12'
     }
     return f"{data.split(' ')[1]}-{month.get(data.split(' ')[0])}"
+
+
+def change_key(key: str) -> str:
+    for_change = {
+        '5g_support': '_5g_support',
+        'geekbench_5_singlecore': 'geekbench_singlecore',
+        'geekbench_multicore': 'geekbench_multicore',
+        'antutu_benchmark_9': 'antutu_benchmark_',
+        'physical_parameters': 'physicalparameters',
+        'nfc': 'nfcc'
+    }
+    if key in for_change.keys():
+        return for_change.get(key)
+    else:
+        return key
