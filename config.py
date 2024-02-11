@@ -1,3 +1,4 @@
+import os
 from dataclasses import dataclass
 
 from environs import Env
@@ -16,7 +17,7 @@ def load_hidden_vars(path: str):
     env = Env()
     env.read_env()
     links = list()
-    with open('path_links.txt', 'r') as path_links_file:
+    with open(os.path.dirname(os.path.abspath(__file__)) + '/path_links.txt', 'r') as path_links_file:
         for line in path_links_file:
             links.append(line.strip())
 
