@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 from bs import pars_link, ua
 from config import hidden
-from core import get_all_paths, add_path_data, get_parent_, get_items_by_code, add_one_link
+from core import get_all_paths, add_path_data, get_parent_, get_items_by_code, add_one_link, get_links_by_code
 from engine import db
 from logger import logger
 
@@ -85,18 +85,21 @@ async def update_items_in_datadir():
         await asyncio.sleep(random.randint(2, 5))
 
 
+async def rec_link(link: str):
+    data = await pars_link(link=link)
+    async with db.scoped_session() as db_session:
+        await add_one_link(session=db_session, data=data)
+
+
 async def add_all_items():
     async with db.scoped_session() as db_session:
         parent_models = await get_parent_(session=db_session)
         dir_codes = [i.code for i in parent_models]
         for code in dir_codes:
-            items_in_db = await get_items_by_code(session=db_session, code=code)
-            print(items_in_db)
-            await db_session.close()
-            break
-
-
-async def rec_link(link: str):
-    data = await pars_link(link=link)
-    async with db.scoped_session() as db_session:
-        await add_one_link(session=db_session, data=data)
+            links_to_rec = await get_links_by_code(session=db_session, code=8)
+            for link in links_to_rec:
+                await rec_link(link.link)
+                logger.debug(f'{link.title} add to DataBase')
+                sek = random.randint(3, 8)
+                await asyncio.sleep(sek)
+                print("I'm waiting", sek, 'sek')

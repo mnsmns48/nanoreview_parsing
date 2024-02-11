@@ -1,6 +1,6 @@
 from typing import Any, Sequence
 
-from sqlalchemy import select, Result, Row, RowMapping
+from sqlalchemy import select, Result, Row, RowMapping, and_
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -38,7 +38,8 @@ async def get_items_by_code(session: AsyncSession, code: int):
 
 
 async def get_links_by_code(session: AsyncSession, code: int):
-    query = select(DataDirectory.link).filter(DataDirectory.parent == code)
+    subq = select(Main.title).filter(DataDirectory.parent == code).scalar_subquery()
+    query = select(DataDirectory).filter(and_(DataDirectory.title.not_in(subq)), (DataDirectory.parent == code))
     result: Result = await session.execute(query)
     return result.scalars().all()
 

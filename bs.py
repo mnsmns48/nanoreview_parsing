@@ -158,7 +158,6 @@ async def pars_link(link: str) -> dict:
                     'Функции USB') else None,
                 'infrared_port': False if all_.get('Инфракрасный порт') == 'Нет' else True,
                 'type_of_sim_card': all_.get('Тип SIM'),
-                'multi_sim_mode': all_.get('Режим работы SIM'),
                 '_5g_support': False if all_.get('Поддержка 5G') == 'Нет' else True
             },
             'physicalparameters': {

@@ -118,7 +118,6 @@ class Communication(Base):
     usb_features: Mapped[Optional[List]] = mapped_column(ARRAY(Text))
     infrared_port: Mapped[Optional[bool]]
     type_of_sim_card: Mapped[Optional[str]] = mapped_column(String(20))
-    multi_sim_mode: Mapped[Optional[str]] = mapped_column(String(15))
     _5g_support: Mapped[Optional[bool]]
 
 

@@ -3,7 +3,7 @@ import sys
 
 from aiohttp import InvalidURL
 
-from logic import rec_link
+from logic import rec_link, add_all_items
 from logic import update_path_parents, update_items_in_datadir
 from engine import db
 from logger import logger
@@ -20,6 +20,8 @@ async def main():
             print('Create directories (if necessary)')
             await update_path_parents()
             await update_items_in_datadir()
+            await add_all_items()
+            logger.debug('Done. no errors')
             sys.exit('Success. Script stopped')
         if choice == 2:
             print('Past link FORMAT: https://nanoreview.net/ru/phone/..... now:')
