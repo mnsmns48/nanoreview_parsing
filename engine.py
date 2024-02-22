@@ -53,11 +53,10 @@ async def create_db():
                                  user=hidden.db_username,
                                  password=hidden.db_password,
                                  host='localhost',
-                                 port=5433
+                                 port=hidden.db_local_port
                                  )
     sql = f'CREATE DATABASE "{hidden.db_name}"'
     await conn.execute(sql)
     await conn.close()
     print(f"База данных <{hidden.db_name}> успешно создана")
-    # conn = await asyncpg.connect(user=hidden.db_username, database=hidden.db_name)
-    # return conn
+
