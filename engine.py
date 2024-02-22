@@ -1,6 +1,7 @@
 from asyncio import current_task
 from contextlib import asynccontextmanager
 
+import asyncpg
 from pydantic_settings import BaseSettings
 from sqlalchemy import NullPool
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, async_scoped_session, AsyncSession
@@ -45,3 +46,18 @@ class DataBase:
 
 
 db = DataBase(settings.db_url, settings.db_echo)
+
+
+async def create_db():
+    conn = await asyncpg.connect(database=hidden.old_db,
+                                 user=hidden.db_username,
+                                 password=hidden.db_password,
+                                 host='localhost',
+                                 port=5433
+                                 )
+    sql = f'CREATE DATABASE "{hidden.db_name}"'
+    await conn.execute(sql)
+    await conn.close()
+    print(f"База данных <{hidden.db_name}> успешно создана")
+    # conn = await asyncpg.connect(user=hidden.db_username, database=hidden.db_name)
+    # return conn
