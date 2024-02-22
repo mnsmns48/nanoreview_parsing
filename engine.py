@@ -58,5 +58,4 @@ async def create_db():
     sql = f'CREATE DATABASE "{hidden.db_name}"'
     await conn.execute(sql)
     await conn.close()
-    print(f"База данных <{hidden.db_name}> успешно создана")
-
+    print(f"DB <{hidden.db_name}> success created")
